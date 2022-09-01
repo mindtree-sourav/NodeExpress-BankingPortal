@@ -13,13 +13,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Read account data
 const accountData = fs.readFileSync(path.join(__dirname,'json/accounts.json'), {
-    encoding: 'UTF8'
+    encoding: 'utf8'
 });
 const accounts = JSON.parse(accountData);
 
 //Read user data
 const userData = fs.readFileSync(path.join(__dirname, 'json/users.json'), {
-    encoding: 'UTF8'
+    encoding: 'utf8'
 })
 const users  = JSON.parse(userData);
 
@@ -55,7 +55,6 @@ app.get("/credit", function(req, res) {
 
 //Profile Route
 app.get('/profile', function(req, res) {
-    console.log(users)
     res.render('profile', {
         user: users[0]
     })
